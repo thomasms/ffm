@@ -92,7 +92,7 @@ h3{
 }
 
 .App-fileviewer {
-  background-color: #fcfbfbd7;
+  background-color: #feffff;
   border-radius: 8px;
   border: 2px solid #282c34;
   margin-top: 50px;
@@ -178,7 +178,7 @@ textarea {
 }
 
 .App-name-input{
-  width: 160px;
+  width: 240px;
   font-size: 18px;
   padding-left: 2%;
   transition: border-color 0.2s;
@@ -194,7 +194,7 @@ textarea {
   border-radius: 8px;
   padding: 0.5em 0em 0.5em 0.5em;
   margin: 0;
-  zoom: 1.4;
+  zoom: 1.8;
   left: 0px;
   position: relative;
 }

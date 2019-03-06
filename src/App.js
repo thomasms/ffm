@@ -13,9 +13,6 @@ class App extends Component {
 
     this.handleGroupChange = this.handleGroupChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleClobber = this.handleClobber.bind(this);
-    this.handleJSON = this.handleJSON.bind(this);
-
     this.handleDownloadFile = this.handleDownloadFile.bind(this);
 
     this.state = {
@@ -23,6 +20,11 @@ class App extends Component {
       group: null,
       clobber: false,
       usejson: false,
+      spek: false,
+      eaf: false,
+      half: false,
+      clear: false,
+      atwo: false,
     }
   }
 
@@ -48,14 +50,12 @@ class App extends Component {
     this.setState({ group: groupValue });
   }
 
-  handleClobber(e){
-    var option = e.target.checked;
-    this.setState({ clobber: option });
-  }
-
-  handleJSON(e){
-    var option = e.target.checked;
-    this.setState({ usejson: option });
+  handleOptionChange = (e) => {
+    const { name } = e.target;
+    const option = e.target.checked;
+    this.setState({
+      [name]: option,
+    });
   }
 
   handleDownloadFile(){
@@ -80,7 +80,7 @@ class App extends Component {
 
             <br/>
             <div>
-              <span>GROUP: </span><DropdownInput classname="select" data={GROUPS} handler={this.handleGroupChange}/>
+              <span>Group structure: </span><DropdownInput classname="select" data={GROUPS} handler={this.handleGroupChange}/>
             </div>
             <br/>
 
@@ -90,10 +90,10 @@ class App extends Component {
               <div className="collapsible-content">
                 <div className="content-inner">
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Enable JSON output?" handler={this.handleJSON}/>
+                    <LabelWithCheck classname="App-checkbox" name="usejson" label="Enable JSON output?" handler={this.handleOptionChange}/>
                   </div>
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Overwrite files?" handler={this.handleClobber}/>
+                    <LabelWithCheck classname="App-checkbox" name="clobber" label="Overwrite files?" handler={this.handleOptionChange}/>
                   </div>
                 </div>
               </div>
@@ -105,7 +105,7 @@ class App extends Component {
               <div className="collapsible-content">
                 <div className="content-inner">
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="EAF data libraries?"/>
+                    <LabelWithCheck classname="App-checkbox" name="eaf" label="EAF data libraries?" handler={this.handleOptionChange}/>
                   </div>
                 </div>
               </div>
@@ -117,13 +117,13 @@ class App extends Component {
               <div className="collapsible-content">
                 <div className="content-inner">
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Output halflives?"/>
+                    <LabelWithCheck classname="App-checkbox" name="half" label="Output halflives?" handler={this.handleOptionChange}/>
                   </div>
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Output clearance data?"/>
+                    <LabelWithCheck classname="App-checkbox" name="clear"label="Output clearance data?" handler={this.handleOptionChange}/>
                   </div>
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Output legal limits data?"/>
+                    <LabelWithCheck classname="App-checkbox" name="atwo" label="Output legal limits data?" handler={this.handleOptionChange}/>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ class App extends Component {
               <div className="collapsible-content">
                 <div className="content-inner">
                   <div>
-                    <LabelWithCheck classname="App-checkbox" name="Approximate gamma spectrum?"/>
+                    <LabelWithCheck classname="App-checkbox" name="spek" label="Approximate gamma spectrum?" handler={this.handleOptionChange}/>
                   </div>
                 </div>
               </div>

@@ -9,6 +9,14 @@ function getControlText(input){
         text.push("JSON");
     }
 
+    if(input.spek){
+        text.push("SPEK");
+    }
+
+    if(input.eaf){
+        text.push("LIBVERSION 0");
+    }
+
     if(input.group != null){
         var line = "GETXS 1 " + input.group;
         if(input.group === 0){
@@ -25,6 +33,18 @@ function getControlText(input){
 function getInitialText(input){
     var text = [];
     text.push("* " + input.name);
+
+    if(input.atwo){
+        text.push("ATWO");
+    }
+
+    if(input.clear){
+        text.push("CLEAR");
+    }
+
+    if(input.half){
+        text.push("HALF");
+    }
 
     return text;
 }

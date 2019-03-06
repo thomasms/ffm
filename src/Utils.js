@@ -27,7 +27,7 @@ function LabelWithCheck(props){
                                value={props.value} 
                                defaultChecked={props.value}
                                className={props.classname}/>
-        <label> {props.name}</label>
+        <label> {props.label}</label>
       </span>
     );
   }
