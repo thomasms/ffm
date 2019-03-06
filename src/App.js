@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { saveAs } from 'file-saver';
+
+import { getRawText } from './KeywordCreator.js'
+import { GROUPS, USE_COLLAPX_STRING } from './Groups.js';
 import { DropdownInput, LabelWithCheck } from './Utils.js';
 import './App.css';
-
-const USE_COLLAPX_STRING = "Use COLLAPX";
-const GROUPS = ["-", USE_COLLAPX_STRING, 66, 69, 100, 142, 162, 172, 175, 616, 709, 1102];
 
 class App extends Component {
 
@@ -14,6 +15,8 @@ class App extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleClobber = this.handleClobber.bind(this);
     this.handleJSON = this.handleJSON.bind(this);
+
+    this.handleDownloadFile = this.handleDownloadFile.bind(this);
 
     this.state = {
       name: "",
@@ -55,57 +58,14 @@ class App extends Component {
     this.setState({ usejson: option });
   }
 
-  getControlText(){
-    var text = [];
-    
-    if(this.state.clobber){
-      text.push("CLOBBER");
-    }
-
-    if(this.state.usejson){
-      text.push("JSON");
-    }
-
-    if(this.state.group != null){
-      var line = "GETXS 1 " + this.state.group;
-      if(this.state.group === 0){
-        line = "GETXS " + this.state.group;
-      }
-      text.push(line);
-    }
-
-    text.push("FISPACT");
-
-    return text;
-  }
-
-  getInitialText(){
-    var text = [];
-    text.push("* " + this.state.name);
-    
-    return text;
-  }
-
-  getInventoryText(){
-    var text = [];
-    
-    text.push("END");
-    text.push("* end");
-
-    return text;
+  handleDownloadFile(){
+    const rawtext = getRawText(this.state);
+    const blob = new Blob([rawtext[0]], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "input.i");
   }
 
   render() {
-    
-    const controltext = this.getControlText();
-    const initialkeys = this.getInitialText();
-    const inventorykeys =  this.getInventoryText();
-
-    const rawtext = controltext.join("\n") + "\n" +
-                    initialkeys.join("\n") + "\n" +
-                    inventorykeys.join("\n");
-                    
-    const rows = controltext.length + initialkeys.length + inventorykeys.length + 1;
+    const data = getRawText(this.state);
 
     //console.log(rawtext);
 
@@ -185,7 +145,8 @@ class App extends Component {
         </div>
 
         <div className="App-right">
-          <textarea className="App-fileviewer" rows={rows} value={rawtext} readOnly/>
+          <textarea className="App-fileviewer" value={data[0]} rows={data[1]} readOnly/>
+          <button className="App-button" onClick={this.handleDownloadFile}>Download input file</button>
         </div>
 
       </div>

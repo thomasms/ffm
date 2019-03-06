@@ -1,0 +1,2 @@
+export const USE_COLLAPX_STRING = "Use COLLAPX";
+export const GROUPS = ["-", USE_COLLAPX_STRING, 66, 69, 100, 142, 162, 172, 175, 616, 709, 1102];

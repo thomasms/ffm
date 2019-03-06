@@ -64,6 +64,33 @@ h3{
   margin-left:20px;
 }
 
+.App-button {
+  width: 140px;
+  height: 45px;
+  font-size: 16px;
+  letter-spacing: 2.5px;
+  color: #111;
+  background-color: #ffe;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  margin-left: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.App-button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
 .App-fileviewer {
   background-color: #fcfbfbd7;
   border-radius: 8px;
@@ -159,7 +186,6 @@ textarea {
   border-radius: 8px;
   padding: 0.5em 0em 0.5em 0.5em;
   margin: 0;
-
 }
 
 .App-checkbox{
