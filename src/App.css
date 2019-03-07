@@ -27,6 +27,17 @@ h3{
   text-align: center;
 }
 
+.App-wrapper {
+  background-color: #282c34;
+  min-height: 100vh;
+  top: 30;
+  padding-top: 20px;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .App-left {
   left: 0;
   text-align: left;
@@ -246,6 +257,10 @@ input[type='checkbox'].toggle {
 
 .toggle:checked + .lbl-toggle::before {
   transform: rotate(90deg) translateX(-3px);
+}
+
+.hidden { 
+  display: none; 
 }
 
 .collapsible-content {
