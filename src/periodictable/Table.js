@@ -161,10 +161,10 @@ class Table extends Component {
       elementName = this.state.hoveredElement.name;
     }
 
-    // var details = "";
-    // if(this.state.hoveredElement){
-    //   details = this.state.hoveredElement.summary;
-    // }
+    var details = "";
+    if(this.state.hoveredElement){
+      details = this.state.hoveredElement.summary;
+    }
 
     var info = "";
     if(this.state.hoveredElement && this.state.hoveredElement.mass > 0){
@@ -182,7 +182,7 @@ class Table extends Component {
 
     const allElements = this.allElements();
     return (
-      <div>
+      <div className="Table-background">
         <button className="Table-button" onClick={this.handleReset}>Reset</button>
         <button className="Table-button" onClick={this.props.handleClose}>Close</button>
         <div className="Table">
@@ -197,6 +197,9 @@ class Table extends Component {
           </h2>
           <p>
             {info}
+          </p>
+          <p>
+            {details}
           </p>
         </div>
       </div>

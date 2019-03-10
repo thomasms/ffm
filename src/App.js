@@ -26,14 +26,16 @@ class App extends Component {
     this.state = {
       name: "",
       group: null,
-      clobber: false,
-      usejson: false,
-      spek: false,
-      eaf: false,
-      half: false,
-      clear: false,
-      atwo: false,
-      showElements: false,
+      options: {
+        clobber: false,
+        usejson: false,
+        spek: false,
+        eaf: false,
+        half: false,
+        clear: false,
+        atwo: false,
+        showElements: false,
+      },
       selectedElements: [],
     }
   }
@@ -67,8 +69,10 @@ class App extends Component {
   handleOptionChange = (e) => {
     const { name } = e.target;
     const option = e.target.checked;
+    var options = {...this.state.options};
+    options[name] = option;
     this.setState({
-      [name]: option,
+      options: options,
     });
   }
 

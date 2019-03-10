@@ -1,19 +1,19 @@
 function getControlText(input){
     var text = [];
 
-    if(input.clobber){
+    if(input.options.clobber){
         text.push("CLOBBER");
     }
 
-    if(input.usejson){
+    if(input.options.usejson){
         text.push("JSON");
     }
 
-    if(input.spek){
+    if(input.options.spek){
         text.push("SPEK");
     }
 
-    if(input.eaf){
+    if(input.options.eaf){
         text.push("LIBVERSION 0");
     }
 
@@ -34,15 +34,15 @@ function getInitialText(input){
     var text = [];
     text.push("* " + input.name);
 
-    if(input.atwo){
+    if(input.options.atwo){
         text.push("ATWO");
     }
 
-    if(input.clear){
+    if(input.options.clear){
         text.push("CLEAR");
     }
 
-    if(input.half){
+    if(input.options.half){
         text.push("HALF");
     }
 

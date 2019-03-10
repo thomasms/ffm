@@ -1,14 +1,23 @@
+.Table-background{
+  color:#282c34;
+  background-color: #282c34;
+}
+
 .Table{
+  background-color: #282c34;
   display: grid;
   grid-gap: 3px 3px;
   grid-template-columns: auto repeat(auto-fill, auto);
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 0px;
   padding-bottom: 0px;
   color: white;
+  overflow: auto;
+  min-width: 1400px;
 }
 
 .Table-details{
+  background-color: #282c34;
   text-align: center;
   justify-content: center;
   color: white;
@@ -17,9 +26,11 @@
   margin-bottom: 200px;
   bottom: 50px;
   width: 100%;
+  min-height: 500px;
 }
 
 .Table-selector{
+  background-color: #282c34;
   text-align: left;
   color: white;
   font-size: 24px;
