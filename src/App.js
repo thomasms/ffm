@@ -5,6 +5,12 @@ import { getRawText } from './KeywordCreator.js'
 import { GROUPS, USE_COLLAPX_STRING } from './Groups.js';
 import { DropdownInput, LabelWithCheck } from './Utils.js';
 import { Table } from './Table.js';
+
+import { FileOptions } from './options/FileOptions.js';
+import { OutputOptions } from './options/OutputOptions.js';
+import { NuclearDataOptions } from './options/NuclearDataOptions.js';
+import { RunOptions } from './options/RunOptions.js';
+
 import './App.css';
 
 class App extends Component {
@@ -76,8 +82,6 @@ class App extends Component {
   render() {
     const data = getRawText(this.state);
 
-    //console.log(rawtext);
-
     return (
       <div className="App">
         <h3>FISPACT-II File Maker</h3>
@@ -95,62 +99,10 @@ class App extends Component {
               </div>
               <br/>
 
-              <div className="wrap-collabsible">
-                <input id="collapsible" className="toggle" type="checkbox" />
-                <label htmlFor="collapsible" className="lbl-toggle">File options</label>
-                <div className="collapsible-content">
-                  <div className="content-inner">
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="usejson" label="Enable JSON output?" handler={this.handleOptionChange}/>
-                    </div>
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="clobber" label="Overwrite files?" handler={this.handleOptionChange}/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="wrap-collabsible">
-                <input id="collapsible2" className="toggle" type="checkbox" />
-                <label htmlFor="collapsible2" className="lbl-toggle">Nuclear data options</label>
-                <div className="collapsible-content">
-                  <div className="content-inner">
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="eaf" label="EAF data libraries?" handler={this.handleOptionChange}/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="wrap-collabsible">
-                <input id="collapsible3" className="toggle" type="checkbox" />
-                <label htmlFor="collapsible3" className="lbl-toggle">Output options</label>
-                <div className="collapsible-content">
-                  <div className="content-inner">
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="half" label="Output halflives?" handler={this.handleOptionChange}/>
-                    </div>
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="clear"label="Output clearance data?" handler={this.handleOptionChange}/>
-                    </div>
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="atwo" label="Output legal limits data?" handler={this.handleOptionChange}/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="wrap-collabsible">
-                <input id="collapsible4" className="toggle" type="checkbox" />
-                <label htmlFor="collapsible4" className="lbl-toggle">Run options</label>
-                <div className="collapsible-content">
-                  <div className="content-inner">
-                    <div>
-                      <LabelWithCheck classname="App-checkbox" name="spek" label="Approximate gamma spectrum?" handler={this.handleOptionChange}/>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <FileOptions handleOptionChange={this.handleOptionChange}/>
+              <NuclearDataOptions handleOptionChange={this.handleOptionChange}/>
+              <OutputOptions handleOptionChange={this.handleOptionChange}/>
+              <RunOptions handleOptionChange={this.handleOptionChange}/>
 
             </div>
             <button className="App-button" onClick={this.handleElements}>Add elements</button>

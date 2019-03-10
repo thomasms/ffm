@@ -183,9 +183,9 @@ class Table extends Component {
           {allElements}
         </div>
         <div className="Table-details">
-          <h3>
+          <h2>
             {elementName}
-          </h3>
+          </h2>
           <p>
             {info}
           </p>
