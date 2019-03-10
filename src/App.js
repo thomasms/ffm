@@ -3,8 +3,8 @@ import { saveAs } from 'file-saver';
 
 import { getRawText } from './KeywordCreator.js'
 import { GROUPS, USE_COLLAPX_STRING } from './Groups.js';
-import { DropdownInput, LabelWithCheck } from './Utils.js';
-import { Table } from './Table.js';
+import { DropdownInput } from './Utils.js';
+import { Table } from './periodictable/Table.js';
 
 import { FileOptions } from './options/FileOptions.js';
 import { OutputOptions } from './options/OutputOptions.js';
@@ -34,6 +34,7 @@ class App extends Component {
       clear: false,
       atwo: false,
       showElements: false,
+      selectedElements: [],
     }
   }
 
@@ -57,6 +58,10 @@ class App extends Component {
     }
 
     this.setState({ group: groupValue });
+  }
+
+  handleSelectedElements(elements){
+      this.setState({ selectedElements: elements });
   }
 
   handleOptionChange = (e) => {
@@ -116,7 +121,9 @@ class App extends Component {
         
         <div className={this.state.showElements ? '': 'hidden'}>
           <div className="App-wrapper">
-            <Table handleClose={this.handleElements}/>
+            <Table handleClose={this.handleElements} 
+                   handleSelectedElements={(elements) => this.setState({ selectedElements: elements })} 
+                   selectedElements={this.state.selectedElements}/>
           </div>
         </div>
       </div>

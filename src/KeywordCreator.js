@@ -46,6 +46,13 @@ function getInitialText(input){
         text.push("HALF");
     }
 
+    if(input.selectedElements.length > 0){
+        text.push("MASS " + input.selectedElements.length);
+        for(var i = 0; i < input.selectedElements.length; i++) {
+            text.push(input.selectedElements[i]);
+        }
+    }
+
     return text;
 }
 

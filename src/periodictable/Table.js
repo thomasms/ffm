@@ -10,6 +10,30 @@ class Table extends Component {
   constructor( props ) {
     super( props );
 
+    this.handleSelected = (element) => {
+        this.setState((prevState, props) => {
+          var elements = prevState.selectedElements;
+          if(element){
+            if(elements.indexOf(element.symbol) === -1){
+              elements.push(element.symbol);
+            }
+            else{
+              elements = elements.filter(function(value, index, arr){
+                  return value !== element.symbol;
+              });
+            }
+          }
+
+          return { selectedElements: elements };
+      }, () => props.handleSelectedElements(this.state.selectedElements));
+    }
+
+    this.handleReset = (element) => {
+      this.setState({
+        selectedElements: []
+      }, () => props.handleSelectedElements(this.state.selectedElements));
+  }
+
     this.state = {
       hoveredElement: null,
       selectedElements: []
@@ -37,24 +61,7 @@ class Table extends Component {
            gridPosition={offset+i+1}
            handleOnMouseEnter={(element) => {this.setState({hoveredElement: element})}}
            handleOnMouseLeave={(element) => {this.setState({hoveredElement: null})}}
-           handleOnClick={(element) => {
-              this.setState((prevState, props) => {
-                var elements = prevState.selectedElements;
-                if(element){
-                  if(elements.indexOf(element.symbol) === -1){
-                    elements.push(element.symbol);
-                  }
-                  else{
-                    elements = elements.filter(function(value, index, arr){
-                        return value !== element.symbol;
-                    });
-                  }
-                }
-
-                return { selectedElements: elements };
-              });
-            }
-           }
+           handleOnClick={this.handleSelected}
          />
        );
    }
@@ -154,43 +161,42 @@ class Table extends Component {
       elementName = this.state.hoveredElement.name;
     }
 
-    var details = "";
-    if(this.state.hoveredElement){
-      details = this.state.hoveredElement.summary;
-    }
+    // var details = "";
+    // if(this.state.hoveredElement){
+    //   details = this.state.hoveredElement.summary;
+    // }
 
     var info = "";
     if(this.state.hoveredElement && this.state.hoveredElement.mass > 0){
       info = this.state.hoveredElement.mass;
     }
 
-    /*
+    
     var selectedElements = "";
-    for(var i = 0; i < this.state.selectedElements.length; i++) {
-      selectedElements += this.state.selectedElements[i];
-      if(i < this.state.selectedElements.length-1){
+    for(var i = 0; i < this.props.selectedElements.length; i++) {
+      selectedElements += this.props.selectedElements[i];
+      if(i < this.props.selectedElements.length-1){
         selectedElements += ", ";
       }
     }
-    */
 
     const allElements = this.allElements();
     return (
       <div>
-        <button className="Table-button" onClick={() => {this.setState({selectedElements: []})}}>Reset</button>
+        <button className="Table-button" onClick={this.handleReset}>Reset</button>
         <button className="Table-button" onClick={this.props.handleClose}>Close</button>
         <div className="Table">
           {allElements}
         </div>
         <div className="Table-details">
+          <p>
+            {selectedElements}
+          </p>
           <h2>
             {elementName}
           </h2>
           <p>
             {info}
-          </p>
-          <p>
-            {details}
           </p>
         </div>
       </div>
