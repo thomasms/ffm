@@ -1,3 +1,4 @@
+
 function getControlText(input){
     var text = [];
 

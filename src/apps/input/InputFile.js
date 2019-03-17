@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { saveAs } from 'file-saver';
 
 import { getRawText } from './KeywordCreator.js'
-import { GROUPS, USE_COLLAPX_STRING } from './Groups.js';
+import { ALL_GROUPS, USE_COLLAPX_STRING } from '../Groups.js';
 import { DropdownInput } from '../Utils.js';
 import { Table } from './periodictable/Table.js';
 
@@ -23,6 +23,7 @@ class InputFile extends Component {
     this.handleDownloadFile = this.handleDownloadFile.bind(this);
     this.handleElements = this.handleElements.bind(this);
     this.handleFuel = this.handleFuel.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
 
     this.state = {
       name: "",
@@ -108,7 +109,7 @@ class InputFile extends Component {
 
               <br/>
               <div>
-                <span>Group structure: </span><DropdownInput classname="select" data={GROUPS} handler={this.handleGroupChange}/>
+                <span>Group structure: </span><DropdownInput classname="select" data={ALL_GROUPS} handler={this.handleGroupChange}/>
               </div>
               <br/>
 

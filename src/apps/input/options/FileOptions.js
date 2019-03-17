@@ -16,7 +16,7 @@ function FileOptions(props){
                         <LabelWithCheck classname="App-checkbox" name="usejson" label="Enable JSON output?" handler={props.handleOptionChange}/>
                     </div>
                     <div>
-                        <LabelWithCheck classname="App-checkbox" name="clobber"label="Overwrite files?" handler={props.handleOptionChange}/>
+                        <LabelWithCheck classname="App-checkbox" name="clobber" label="Overwrite files?" handler={props.handleOptionChange}/>
                     </div>
                 </div>
             </div>
