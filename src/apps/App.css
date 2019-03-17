@@ -33,6 +33,14 @@ h3{
   text-align: center;
 }
 
+.App-title{
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .App-wrapper {
   background-color: #282c34;
   min-height: 100vh;
@@ -81,8 +89,40 @@ h3{
   margin-left:20px;
 }
 
+.App-mass {
+  margin-left:20px;
+  margin-right:20px;
+  border: 2px solid #e8eaec;
+  border-radius: 45px;
+  text-align: left;
+  width: 40%;
+  float: left;
+}
+
+.App-mass h4 {
+  margin-left:40px;
+}
+
+.App-mass p {
+  margin-left:40px;
+}
+
+.App-fuel {
+  margin-left:20px;
+  margin-right:20px;
+  border: 2px solid #e8eaec;
+  border-radius: 45px;
+  text-align: left;
+  width: 40%;
+  float: right;
+}
+
+.App-fuel h4 {
+  margin-left:40px;
+}
+
 .App-button {
-  width: 140px;
+  width: 180px;
   height: 45px;
   font-size: 16px;
   letter-spacing: 2.5px;
@@ -94,9 +134,9 @@ h3{
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
-  margin-bottom: 50px;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-bottom: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -130,6 +170,7 @@ h3{
 .App-link {
   color: #61dafb;
 }
+
 
 textarea {
   outline: none;
@@ -290,6 +331,49 @@ input[type='checkbox'].toggle {
   margin-right: 40px;
   padding: .5rem 1rem;
 }
+
+.bm-burger-button {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  left: 30px;
+  top: 20px;
+}
+
+.right .bm-burger-button {
+  left: initial;
+  right: 30px;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-menu {
+  background: #373a47;
+}
+
+.bm-item-list a {
+  padding: 2.5em 1.5em 0;
+  font-size: 1.55em;
+  font-weight: 800;
+  color: #fffce1;
+  text-decoration: none;
+}
+
+.bm-item-list a:hover, a:active
+{
+  color: #c94e50;
+}
+
+.bm-item:focus {
+  outline: none;
+}
+
 
 @keyframes App-logo-spin {
   from {

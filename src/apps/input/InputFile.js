@@ -3,7 +3,7 @@ import { saveAs } from 'file-saver';
 
 import { getRawText } from './KeywordCreator.js'
 import { GROUPS, USE_COLLAPX_STRING } from './Groups.js';
-import { DropdownInput } from './Utils.js';
+import { DropdownInput } from '../Utils.js';
 import { Table } from './periodictable/Table.js';
 
 import { FileOptions } from './options/FileOptions.js';
@@ -11,9 +11,9 @@ import { OutputOptions } from './options/OutputOptions.js';
 import { NuclearDataOptions } from './options/NuclearDataOptions.js';
 import { RunOptions } from './options/RunOptions.js';
 
-import './App.css';
+import '../App.css';
 
-class App extends Component {
+class InputFile extends Component {
 
   constructor( props ) {
     super( props );
@@ -22,6 +22,7 @@ class App extends Component {
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDownloadFile = this.handleDownloadFile.bind(this);
     this.handleElements = this.handleElements.bind(this);
+    this.handleFuel = this.handleFuel.bind(this);
 
     this.state = {
       name: "",
@@ -82,6 +83,10 @@ class App extends Component {
     });
   }
 
+  handleFuel(){
+    //todo: implement
+  }
+
   handleDownloadFile(){
     const rawtext = getRawText(this.state);
     const blob = new Blob([rawtext[0]], {type: "text/plain;charset=utf-8"});
@@ -92,9 +97,8 @@ class App extends Component {
     const data = getRawText(this.state);
 
     return (
-      <div className="App">
-        <h3>FISPACT-II File Maker</h3>
-        
+      <div>
+
         <div className={this.state.showElements ? 'hidden' : ''}>
           <div className="App-left">
             <div className="App-content">
@@ -114,7 +118,15 @@ class App extends Component {
               <RunOptions handleOptionChange={this.handleOptionChange}/>
 
             </div>
-            <button className="App-button" onClick={this.handleElements}>Add elements</button>
+
+            <div className="App-mass">
+              <h4>Mass</h4>
+              <button className="App-button" onClick={this.handleElements}>Set elemental composition</button>
+            </div>
+            <div className="App-fuel">
+              <h4>Fuel</h4>
+              <button className="App-button" onClick={this.handleFuel}>Set fuel composition</button>
+            </div>
           </div>
 
           <div className="App-right">
@@ -135,4 +147,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default InputFile;

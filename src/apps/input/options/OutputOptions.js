@@ -1,7 +1,7 @@
 import React from 'react';
-import { LabelWithCheck } from '../Utils.js';
+import { LabelWithCheck } from '../../Utils.js';
 
-import '../App.css';
+import '../../App.css';
 //import './OutputOptions.css';
 
 function OutputOptions(props){
