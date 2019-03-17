@@ -49,8 +49,15 @@ class Table extends Component {
           this.state.hoveredElement.mass === data[i].mass){
          colour = "blue";
        }
-       if(this.state.selectedElements.indexOf(data[i].symbol) > -1){
+       var indx = this.state.selectedElements.indexOf(data[i].symbol);
+       if(indx > -1){
          colour = "red";
+       }
+
+       var selectedHandle = this.handleSelected;
+       if(data[i].symbol === ""){
+         colour = "grey";
+         selectedHandle = () => {};
        }
 
        elements.push(
@@ -61,7 +68,7 @@ class Table extends Component {
            gridPosition={offset+i+1}
            handleOnMouseEnter={(element) => {this.setState({hoveredElement: element})}}
            handleOnMouseLeave={(element) => {this.setState({hoveredElement: null})}}
-           handleOnClick={this.handleSelected}
+           handleOnClick={selectedHandle}
          />
        );
    }

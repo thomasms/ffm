@@ -1,0 +1,1 @@
+export const PARTICLES = ["neutron", "proton", "deuteron", "alpha", "triton", "gamma"];

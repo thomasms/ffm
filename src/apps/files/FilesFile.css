@@ -29,3 +29,14 @@
     position: relative;
     min-height: 60vh;
   }
+
+.Files-path-input{
+    width: 95%;
+    font-size: 14px;
+    padding-left: 2%;
+    transition: border-color 0.2s;
+    border: 0px solid black;
+    border-radius: 8px;
+    padding: 0.5em 0em 0.5em 0.5em;
+    margin: 0;
+  }

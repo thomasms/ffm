@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { saveAs } from 'file-saver';
 
-import { DropdownInput } from '../Utils.js';
-
 import '../App.css';
 
 class FluxesFile extends Component {
