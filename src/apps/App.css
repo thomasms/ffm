@@ -375,6 +375,18 @@ input[type='checkbox'].toggle {
 }
 
 
+.bm-item-entry {
+  margin-top: 35%;
+  font-size: 1.35em;
+  font-weight: 800;
+  color: #fffce1;
+  text-decoration: none;
+}
+
+.bm-item-subentry {
+  margin-top: 15%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

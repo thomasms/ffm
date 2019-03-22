@@ -12,7 +12,7 @@ function getPaths(input){
         xs_group = `0${xs_group}`;
     }
 
-    if(input.options.eaf){
+    if(input.eaf){
         const fis_groups = [66, 69];
         const flt_groups = [172, 211];
 

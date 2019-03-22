@@ -15,8 +15,19 @@ class InputApp extends Component {
   render() {
     return (
       <div className="App">
-        <Header/>
-        <InputFile />
+      <Header handleEAFChange={this.props.handleEAFChange} 
+              handleParticleChange={this.props.handleParticleChange} 
+              handleGroupChange={this.props.handleGroupChange}
+              availableGroups={this.props.availableGroups} 
+              availableParticles={this.props.availableParticles} 
+              group={this.props.group} 
+              particle={this.props.particle}
+              eaf={this.props.eaf} 
+      />
+      <InputFile group={this.props.group} 
+                 particle={this.props.particle}
+                 eaf={this.props.eaf} 
+      />
       </div>
     );
   }
