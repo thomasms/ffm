@@ -18,7 +18,6 @@ class InputFile extends Component {
   constructor( props ) {
     super( props );
 
-    this.handleGroupChange = this.handleGroupChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDownloadFile = this.handleDownloadFile.bind(this);
     this.handleElements = this.handleElements.bind(this);
@@ -27,7 +26,6 @@ class InputFile extends Component {
 
     this.state = {
       name: "",
-      group: null,
       options: {
         clobber: false,
         usejson: false,
@@ -44,23 +42,6 @@ class InputFile extends Component {
   handleNameChange(e){
     var name = e.target.value;
     this.setState({ name: name });
-  }
-
-  handleGroupChange(e){
-    var group = e.target.value;
-    var groupValue = null;
-
-    if(group === USE_COLLAPX_STRING){
-      groupValue = 0
-    }
-    else if(!isNaN(group)){
-      groupValue = parseInt(group, 10);
-    }
-    else{
-      groupValue = null;
-    }
-
-    this.setState({ group: groupValue });
   }
 
   handleSelectedElements(elements){
@@ -111,10 +92,6 @@ class InputFile extends Component {
               </div>
 
               <br/>
-              <div>
-                <span>Group structure: </span><DropdownInput classname="select" data={ALL_GROUPS} handler={this.handleGroupChange}/>
-              </div>
-              <br/>
 
               <FileOptions handleOptionChange={this.handleOptionChange}/>
               {/*<NuclearDataOptions handleOptionChange={this.handleOptionChange}/> */}
@@ -122,6 +99,7 @@ class InputFile extends Component {
               <RunOptions handleOptionChange={this.handleOptionChange}/>
 
             </div>
+            <br/>
 
             <div className="App-mass">
               <h4>Mass</h4>

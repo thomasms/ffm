@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 import { PARTICLES } from './apps/Particle';
+import { ALL_GROUPS, USE_COLLAPX_STRING } from './apps/Groups.js';
 
 import InputApp from './apps/InputApp';
 import FilesApp from './apps/FilesApp';
@@ -21,8 +22,8 @@ class Main extends Component {
       this.handleEAFChange = this.handleEAFChange.bind(this);
 
       this.state = {
-        group: 709,
-        availableGroups: [709],
+        group: null,
+        availableGroups: ALL_GROUPS,
         particle: PARTICLES[0],
         availableParticles: PARTICLES,
         options: {
@@ -32,8 +33,20 @@ class Main extends Component {
     }
   
     handleGroupChange(e){
-      var group = parseInt(e.target.value, 10);
-      this.setState({ group: group });
+        var group = e.target.value;
+        var groupValue = null;
+    
+        if(group === USE_COLLAPX_STRING){
+          groupValue = 0
+        }
+        else if(!isNaN(group)){
+          groupValue = parseInt(group, 10);
+        }
+        else{
+          groupValue = null;
+        }
+        
+        this.setState({ group: groupValue });
     }
   
     handleParticleChange(e){
@@ -49,9 +62,9 @@ class Main extends Component {
       options["eaf"] = option;
   
       availableParticles = PARTICLES;
-      availableGroups = [709];
+      availableGroups = ["-", USE_COLLAPX_STRING, 709];
       if(option){
-          availableGroups = [66, 69, 100, 172, 175, 211, 315];
+          availableGroups = ["-", USE_COLLAPX_STRING, 66, 69, 100, 172, 175, 211, 315];
           availableParticles = ["neutron"];
       }
       var default_group = availableGroups[0];

@@ -7,9 +7,12 @@ function getPaths(input){
     const group = input.group;
     const particle = input.particle[0];
 
-    var xs_group = group.toString();
-    if(xs_group.length === 2){
-        xs_group = `0${xs_group}`;
+    var xs_group = "";
+    if(group != null & group > 0){
+        xs_group = group.toString();
+        if(xs_group.length === 2){
+            xs_group = `0${xs_group}`;
+        }
     }
 
     if(input.eaf){
@@ -33,9 +36,11 @@ function getPaths(input){
         text.push("# decay data");
         text.push(`decay${spacing}${nd_path}${sep}EAF2010data${sep}eaf_dec_20100.001\n`);
 
-        text.push("# cross section data");
-        text.push(`crossec${spacing}${nd_path}${sep}EAF2010data${sep}eaf_n_gxs_${xs_group}_${xs_str}_20100`);
-        text.push(`crossunc${spacing}${nd_path}${sep}EAF2010data${sep}eaf_un_20100\n`);
+        if(xs_group){
+            text.push("# cross section data");
+            text.push(`crossec${spacing}${nd_path}${sep}EAF2010data${sep}eaf_n_gxs_${xs_group}_${xs_str}_20100`);
+            text.push(`crossunc${spacing}${nd_path}${sep}EAF2010data${sep}eaf_un_20100\n`);
+        }
 
         text.push("# fission data");
         text.push(`asscfy${spacing}${nd_path}${sep}EAF2010data${sep}eaf_n_asscfy_20100`);
@@ -56,8 +61,10 @@ function getPaths(input){
         text.push("# decay data base directory");
         text.push(`dk_endf${spacing}${nd_path}${sep}decay${sep}decay_2012\n`);
 
-        text.push("# cross section data");
-        text.push(`xs_endf${spacing}${nd_path}${sep}TENDL2015data${sep}tal2015-${particle}${sep}gxs-${xs_group}\n`);
+        if(xs_group){
+            text.push("# cross section data");
+            text.push(`xs_endf${spacing}${nd_path}${sep}TENDL2015data${sep}tal2015-${particle}${sep}gxs-${xs_group}\n`);
+        }
 
         text.push("# absorp data");
         text.push(`absorp${spacing}${nd_path}${sep}decay${sep}abs_2012\n`);
