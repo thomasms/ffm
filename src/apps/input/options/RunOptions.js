@@ -9,7 +9,7 @@ function RunOptions(props){
     return(
         <div className="wrap-collabsible">
             <input id="collapsible-runoptions" className="toggle" type="checkbox" />
-            <label htmlFor="collapsible-runoptions" className="lbl-toggle">Nuclear data options</label>
+            <label htmlFor="collapsible-runoptions" className="lbl-toggle">Run settings</label>
             <div className="collapsible-content">
                 <div className="content-inner">
                     <div>

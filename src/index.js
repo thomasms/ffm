@@ -61,6 +61,7 @@ class Main extends Component {
         availableGroups: availableGroups,
         availableParticles: availableParticles,
         options: options,
+        particle: PARTICLES[0],
       });
     }
 

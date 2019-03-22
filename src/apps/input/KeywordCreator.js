@@ -1,4 +1,6 @@
 
+import { PARTICLES, PARTICLE_ID } from '../Particle.js';
+
 function getControlText(input){
     var text = [];
 
@@ -14,14 +16,20 @@ function getControlText(input){
         text.push("SPEK");
     }
 
-    if(input.options.eaf){
+    if(input.eaf){
         text.push("LIBVERSION 0");
     }
 
+    if(input.particle){
+        const projindx = Math.max(0, PARTICLES.indexOf(input.particle));
+        var line = "PROJECTILE " + PARTICLE_ID[projindx];
+        text.push(line);
+    }
+
     if(input.group != null){
-        var line = "GETXS 1 " + input.group;
+        line = "GETXS 1 " + input.group;
         if(input.group === 0){
-        line = "GETXS " + input.group;
+            line = "GETXS " + input.group;
         }
         text.push(line);
     }

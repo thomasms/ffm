@@ -32,7 +32,6 @@ class InputFile extends Component {
         clobber: false,
         usejson: false,
         spek: false,
-        eaf: false,
         half: false,
         clear: false,
         atwo: false,
@@ -95,7 +94,11 @@ class InputFile extends Component {
   }
 
   render() {
-    const data = getRawText(this.state);
+    var input = Object.assign({}, this.state);
+    input['group'] = this.props.group;
+    input['particle'] = this.props.particle;
+    input['eaf'] = this.props.eaf;
+    const data = getRawText(input);
 
     return (
       <div>
@@ -114,7 +117,7 @@ class InputFile extends Component {
               <br/>
 
               <FileOptions handleOptionChange={this.handleOptionChange}/>
-              <NuclearDataOptions handleOptionChange={this.handleOptionChange}/>
+              {/*<NuclearDataOptions handleOptionChange={this.handleOptionChange}/> */}
               <OutputOptions handleOptionChange={this.handleOptionChange}/>
               <RunOptions handleOptionChange={this.handleOptionChange}/>
 
