@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { saveAs } from 'file-saver';
 
 import { getRawText } from './KeywordCreator.js'
-import { ALL_GROUPS, USE_COLLAPX_STRING } from '../Groups.js';
-import { DropdownInput } from '../Utils.js';
 import { Table } from './periodictable/Table.js';
 
 import { FileOptions } from './options/FileOptions.js';
 import { OutputOptions } from './options/OutputOptions.js';
-import { NuclearDataOptions } from './options/NuclearDataOptions.js';
 import { RunOptions } from './options/RunOptions.js';
 
 import '../App.css';

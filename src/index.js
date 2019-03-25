@@ -67,7 +67,7 @@ class Main extends Component {
           availableGroups = ["-", USE_COLLAPX_STRING, 66, 69, 100, 172, 175, 211, 315];
           availableParticles = ["neutron"];
       }
-      var default_group = availableGroups[0];
+      var default_group = null;
   
       this.setState({
         group: default_group,

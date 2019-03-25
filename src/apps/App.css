@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo|Montserrat');
+@import '~pretty-checkbox/dist/pretty-checkbox.min.css';
 
 html, body {
   margin: 0px;
@@ -326,7 +327,7 @@ input[type='checkbox'].toggle {
 }
 
 .collapsible-content .content-inner {
-  background: rgba(253, 234, 112, 0.2);
+  background: rgba(177, 176, 172, 0.2);
   border-radius: 7px;
   margin-right: 40px;
   padding: .5rem 1rem;

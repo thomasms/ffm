@@ -21,14 +21,19 @@ function DropdownInput(props) {
 
 function LabelWithCheck(props){
     return (
-      <span>
-        <input type="checkbox" name={props.name} 
-                               onChange={props.handler} 
-                               value={props.value} 
-                               defaultChecked={props.value}
-                               className={props.classname}/>
-        <label> {props.label}</label>
-      </span>
+      <div className="pretty p-default p-round p-pulse">
+        <span>
+          <input type="checkbox" name={props.name} 
+                                onChange={props.handler} 
+                                value={props.value} 
+                                defaultChecked={props.value}
+                                className={props.classname}/>
+          <div className="state p-warning">
+            <i className="icon mdi mdi-check"></i>
+            <label> {props.label}</label>
+          </div>
+        </span>
+      </div>
     );
   }
 
